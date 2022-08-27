@@ -142,10 +142,12 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         if k[0:5] == "birth":
             birthdays[k] = v
     msg_val = '看起来，今天天气君不在线哩'
+    print(temp, weather)
     spe_weather_keys = (u'雪', u'雨', u'雹', u'阴')
     if temp and weather:
         try:
             temp_list_a = re.findall(r'^\d+', temp)
+            print(temp_list_a)
             if temp_list_a and temp_list_a[0] > 32:
                 msg_val = '今日温度有点高，注意防晒呦' 
             elif any([_ in weather for _ in spe_weather_keys]):
@@ -225,7 +227,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     else:
         print(response)
  
- 
+
 if __name__ == "__main__":
     try:
         with open("config.txt", encoding="utf-8") as f:
