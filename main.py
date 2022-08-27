@@ -2,7 +2,6 @@
 大致看了下，没啥问题
 '''
 
-from asyncio.windows_events import NULL
 import random
 from time import localtime
 from requests import get, post
