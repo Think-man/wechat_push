@@ -148,7 +148,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         try:
             temp_list_a = re.findall(r'^\d+', temp)
             print(temp_list_a)
-            if temp_list_a and temp_list_a[0] > 32:
+            if temp_list_a and int(temp_list_a[0]) > 32:
                 msg_val = '今日温度有点高，注意防晒呦' 
             elif any([_ in weather for _ in spe_weather_keys]):
                 msg_val = '今日阴天哩，记得要带雨伞呦'
