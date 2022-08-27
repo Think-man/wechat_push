@@ -140,6 +140,18 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     for k, v in config.items():
         if k[0:5] == "birth":
             birthdays[k] = v
+    msg_val = '看起来，今天天气君不在线哩'
+    if temp and weather:
+        try:
+            if int(temp)>32:
+                msg_val = '今日温度有点高，注意防晒呦' 
+            elif isinstance(weather, (str, basestring)) and (u'雨' in weather or '雨' in weather):
+                msg_val = '今日温度有点低，记得要带雨伞呦'
+            else:
+                msg_val = '看起来今天很凉快噻～'
+        except Exception as e:
+            pass
+        
     data = {
         "touser": to_user,
         "template_id": config["template_id"],
@@ -160,6 +172,10 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             },
             "temp": {
                 "value": temp,   # 判断下温度，温度太高，注意防晒，如果凉快，注意保暖，如果下雨，记得带雨伞呦
+                "color": get_color()
+            },
+            "temp_note":{
+                "value": msg_val,
                 "color": get_color()
             },
             "wind_dir": {

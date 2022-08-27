@@ -5,7 +5,7 @@
 # 公众号appSecret
 "app_secret": "e946f39326e77b2547a80f2103e8003e",
 # 模板消息id
-"template_id": "odWrRzwS5HfM6PkHFAPi043poGhvQVVypIGos0y9hrk",
+"template_id": "hq4dJNB9HUIvcv9PxC6ULK-phgTAOitvLYQAS_3AnJs",
 # 接收公众号消息的微信号，如果有多个，需要在[]里用英文逗号间隔，例如["wx1", "wx2"]
 "user": ["odcfd6qkAntiI2WySR5y7f1sTblk"],
  
@@ -23,7 +23,7 @@
 # 在一起的日子，格式同上，暂不不支持农历
 "love_date": "2022-01-01",
 # 金句中文，如果设置了，则会显示这里的，如果为空，默认会读取金山的每日金句
-"note_ch": "今天外边雨滴滴答答的声音，就像是幻想看见你的每一个瞬间，秒针在我心中撞击的那样铿锵有力。(dongdong留)",
+"note_ch": "今天外边雨滴滴答答的声音，就像是幻想看见你的每一个瞬间，秒针在我心中撞击那样的铿锵有力。",
 # 金句英文
 "note_en": "There is nothing the translator can do.(翻译君已阵亡，哈哈～)"
 }
