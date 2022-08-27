@@ -120,6 +120,13 @@ def get_ciba(**kwargs):
     note_ch = r.json()["note"]
     return note_ch, note_en
  
+
+# 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
+def get_words():
+  words = get("https://api.shadiao.pro/chp")
+  if words.status_code != 200:
+    return get_words()
+  return words.json()['data']['text']
  
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en, **kwargs):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
@@ -191,6 +198,10 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             #     "value": love_days,
             #     "color": get_color()
             # },
+            "words": {
+                "value": get_words(),  # 获取彩虹屁接口
+                "color": get_color()
+            },
             "note_en": {
                 "value": note_en,
                 "color": get_color()
