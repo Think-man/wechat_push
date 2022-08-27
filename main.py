@@ -126,8 +126,10 @@ def get_words():
   words = get("https://api.shadiao.pro/chp")
   if words.status_code != 200:
     return get_words()
+  elif len(words.json()['data']['text']) > 100:
+    return get_words()
   return words.json()['data']['text']
- 
+
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en, **kwargs):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
