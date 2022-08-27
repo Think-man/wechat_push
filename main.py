@@ -2,6 +2,7 @@
 大致看了下，没啥问题
 '''
 
+from asyncio.windows_events import NULL
 import random
 from time import localtime
 from requests import get, post
@@ -175,8 +176,12 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         "url": "http://weixin.qq.com/download",
         "topcolor": "#FF0000",
         "data": {
+            "postman_format":{
+                "value": "{}".format('💂🏻‍♂️投递员:'),
+                "color": NULL
+            },
             "postman":{
-                "value": "{} {}".format('💂🏻‍♂️投递员:', 'dongdong'),
+                "value": "{}".format('dongdong'),
                 "color": get_color()
             },
             "date": {
