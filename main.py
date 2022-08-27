@@ -9,6 +9,7 @@ from datetime import datetime, date
 from zhdate import ZhDate
 import sys
 import os
+import re
 
 # 记录频次，第一次推动都是制定内容，暂定
  
@@ -141,12 +142,14 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         if k[0:5] == "birth":
             birthdays[k] = v
     msg_val = '看起来，今天天气君不在线哩'
+    spe_weather_keys = (u'雪', u'雨', u'雹', u'阴')
     if temp and weather:
         try:
-            if int(temp)>32:
+            temp_list_a = re.findall(r'^\d+', temp)
+            if temp_list_a and temp_list_a[0] > 32:
                 msg_val = '今日温度有点高，注意防晒呦' 
-            elif isinstance(weather, (str, basestring)) and (u'雨' in weather or '雨' in weather):
-                msg_val = '今日温度有点低，记得要带雨伞呦'
+            elif isinstance(weather, (str, basestring)) and any([_ in weather for _ in spe_weather_keys]):
+                msg_val = '今日阴天哩，记得要带雨伞呦'
             else:
                 msg_val = '看起来今天很凉快噻～'
         except Exception as e:
