@@ -8,7 +8,7 @@
 "template_id": "yii6S28Mw-CIuE_2lxhhNY0Z4Cn-51iha1kb-fIFhVA",
 # 接收公众号消息的微信号，如果有多个，需要在[]里用英文逗号间隔，例如["wx1", "wx2"]
 "user": ["odcfd6qkAntiI2WySR5y7f1sTblk",  #nian
-#"odcfd6lJwpGv3ZiBHfhG6O2trnQA", # lizi
+"odcfd6lJwpGv3ZiBHfhG6O2trnQA", # lizi
 ],
  
 # 信息配置
