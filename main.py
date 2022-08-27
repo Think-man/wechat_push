@@ -148,12 +148,12 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             temp_list_a = re.findall(r'^\d+', temp)
             if temp_list_a and temp_list_a[0] > 32:
                 msg_val = '今日温度有点高，注意防晒呦' 
-            elif isinstance(weather, (str, basestring)) and any([_ in weather for _ in spe_weather_keys]):
+            elif any([_ in weather for _ in spe_weather_keys]):
                 msg_val = '今日阴天哩，记得要带雨伞呦'
             else:
                 msg_val = '看起来今天很凉快噻～'
         except Exception as e:
-            pass
+            raise e, temp, weather
         
     data = {
         "touser": to_user,
