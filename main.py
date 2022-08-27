@@ -126,7 +126,7 @@ def get_words():
   words = get("https://api.shadiao.pro/chp")
   if words.status_code != 200:
     return get_words()
-  elif len(words.json()['data']['text']) > 100:
+  elif len(words.json()['data']['text']) > 38:
     return get_words()
   return words.json()['data']['text']
 
