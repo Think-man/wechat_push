@@ -176,7 +176,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         "topcolor": "#FF0000",
         "data": {
             "postman":{
-                "value": "{} {}".format(emoji.demojize('💂🏻‍♂️投递员:'), 'dongdong'),
+                "value": "{} {}".format('💂🏻‍♂️投递员:', 'dongdong'),
                 "color": get_color()
             },
             "date": {
