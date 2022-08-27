@@ -10,6 +10,7 @@ from zhdate import ZhDate
 import sys
 import os
 import re
+import emoji
 
 # 记录频次，第一次推动都是制定内容，暂定
  
@@ -118,6 +119,8 @@ def get_ciba(**kwargs):
     r = get(url, headers=headers)
     note_en = r.json()["content"]
     note_ch = r.json()["note"]
+    if len(note_en) > 80:
+        return u'默认语', 'Zero is the end, but also the start.'
     return note_ch, note_en
  
 
@@ -172,8 +175,12 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         "url": "http://weixin.qq.com/download",
         "topcolor": "#FF0000",
         "data": {
+            "postman":{
+                "value": "{} {}".format(emoji.demojize('💂🏻‍♂️投递员:', 'dongdong')),
+                "color": get_color()
+            },
             "date": {
-                "value": "{} {}".format(today, week),
+                "value": "{} {} {}".format(emoji.demojize('📅今天是：'), today, week),
                 "color": get_color()
             },
             "region": {
@@ -208,10 +215,10 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
                 "value": note_en,
                 "color": get_color()
             },
-            "note_ch": {
-                "value": note_ch,
-                "color": get_color()
-            }
+            # "note_ch": {
+            #     "value": note_ch,
+            #     "color": get_color()
+            # }
         }
     }
     for key, value in birthdays.items():
