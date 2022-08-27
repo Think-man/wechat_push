@@ -175,16 +175,12 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         "url": "http://weixin.qq.com/download",
         "topcolor": "#FF0000",
         "data": {
-            "postman_format":{
-                "value": "{}".format('💂🏻‍♂️投递员：'),
-                "color": None
-            },
             "postman":{
                 "value": "{}".format('dongdong'),
                 "color": get_color()
             },
             "date": {
-                "value": "{} {} {}".format('今天是：', today, week),
+                "value": "{} {}".format(today, week),
                 "color": get_color()
             },
             "region": {
