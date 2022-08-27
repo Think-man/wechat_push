@@ -178,7 +178,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         "data": {
             "postman_format":{
                 "value": "{}".format('💂🏻‍♂️投递员:'),
-                "color": NULL
+                "color": None
             },
             "postman":{
                 "value": "{}".format('dongdong'),
