@@ -155,7 +155,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             else:
                 msg_val = '看起来今天很凉快噻～'
         except Exception as e:
-            raise e, temp, weather
+            print(e)
         
     data = {
         "touser": to_user,
